@@ -75,8 +75,8 @@ jobs:
        with:
          push: true
          tags: |
-           curtis-asral/fastapi-calculator:latest
-           curtis-asral/fastapi-calculator:${{ github.sha }}
+           ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-calculator:latest
+           ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-calculator:${{ github.sha }}
          platforms: linux/amd64,linux/arm64
-         cache-from: type=registry,ref=curtis-asral/fastapi-calculator:cache
+         cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fastapi-calculator:cache
          cache-to: type=inline,mode=max
